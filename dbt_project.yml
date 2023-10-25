@@ -1,0 +1,19 @@
+
+name: 'stripe'
+version: '1.0'
+require-dbt-version: ">0.13.0"
+
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+target-path: "target"
+clean-targets: ["target"]
+test-paths: ["test"]
+data-paths: ["data"]
+
+
+models:
+  stripe:
+    materialized: view
+    vars:
+      events_table: 'stripe.stripe_events' #bota os eventos das tabelas aqui beleza meu amigo
+      timezone: "America/New_York"
